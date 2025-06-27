@@ -1,4 +1,6 @@
-# Hi!
+# Hast du Aufgaben für meine GeoPandas?
+
+<img src="geotrixi.png" alt="avatar" width="150"/>
 
 Ich bin `Natalie Kammerzell`, Junior Geodateningenieurin aus Oberbayern.
 
