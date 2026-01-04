@@ -1,26 +1,43 @@
 # Natalie Kammerzell
 
-<img src="img/cv_photo_320.jpg" alt="Photo"/>
+<div style="clear: both;">
 
-Ich bin `Natalie Kammerzell`, Geodateningenieurin aus Oberbayern.
+<img src="img/cv_photo_320.jpg" alt="Photo" align="left" hspace=10 />
 
- - `Runder Tisch GIS e.V.`, Mitglied, Mentee
+Ich bin Ingenieurin mit Studium des Vermessungswesens und 4 Jahren Berufserfahrung in Russland, anerkannt von der Bayerischen Ingenieurekammer-Bau. Meine Schwerpunkte liegen in Geodaten, GIS und Katasterarbeiten, ergänzt durch Weiterbildungen in Python, SQL und Power BI.
+
+Seit 2025 bin ich Mitglied von **Runder Tisch GIS e.V.**
+
+</div>
 
 ## Leistungen
 
- - QGIS
- - ArcGIS
+ - Erstellung der digitalen und druckbaren Karten.
+ - Visualisieren der Geodaten, Erstellung der Infografik.
+ - Entwicklung der geodatenorientierten Web-Applikationen.
+ - Vektordatenanalyse.
+ - Rasterdatenanalyse.
+ - Netzwerkanalyse.
+ - Automatosierung der Workflows mit **Python** (PyQGIS, Geopandas). 
+ - Design und Verwaltung von **PostGIS/SQL**-Datenbanken zur effizienten Speicherung und Abfrage von Geodatensätzen.
+
+## Werkzeuge
+
+ - [QGIS](https://qgis.org)
+ - [ArcGIS](https://www.arcgis.com)
+ - [Streamlit](https://streamlit.io/)
  - Python, Geopandas
  - SQL
 
 ## Portfolio
 
- - 
+ - Seen von Deutschland
+ - Übersicht von Layers des Digitalen Landschaftmodels
 
 ## Bildung
 
- - [2025] Grund- u. Aufbaukurs QGIS
- - [2025] Geispatiale Datenanalyse mit Python
+ - [2025] Grund- u. Aufbaukurs QGIS, [cimdata Bildungsakademie](https://cimdata.de/weiterbildung/gis-qgis-aufbaukurs)
+ - [2025] Geispatiale Datenanalyse mit Python, [DataCamp](https://www.datacamp.com/portfolio/nkmzl)
  - [2010] Abschluß als Dipl. Vermessungsingenieur 
 
 ## Persönliches
@@ -31,4 +48,5 @@ Ich bin `Natalie Kammerzell`, Geodateningenieurin aus Oberbayern.
 ## Kontakte
 
  - Profil auf [LinkedIn](www.linkedin.com/in/geotrixi)
+ - [Schreiben Sie mir](mailto:n@kmzl.de)
 
