@@ -6,7 +6,7 @@
 
 Ich bin Ingenieurin mit Studium des Vermessungswesens und 4 Jahren Berufserfahrung in Russland, anerkannt von der Bayerischen Ingenieurekammer-Bau. Meine Schwerpunkte liegen in Geodaten, GIS und Katasterarbeiten, ergänzt durch Weiterbildungen in Python, SQL und Power BI.
 
-Seit 2025 bin ich Mitglied von **Runder Tisch GIS e.V.**
+Seit 2025 bin ich Mitglied von [Runder Tisch GIS e.V.](https://www.rundertischgis.de/)
 
 </div>
 
@@ -28,6 +28,9 @@ Seit 2025 bin ich Mitglied von **Runder Tisch GIS e.V.**
  - [Streamlit](https://streamlit.io/)
  - Python, Geopandas
  - SQL
+ - VSCode
+ - Github
+ - Linux (WSL)
 
 ## Portfolio
 
