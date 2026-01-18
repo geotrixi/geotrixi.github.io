@@ -16,12 +16,13 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 
 ## Portfolio
 
+### Solarparks in Deutschland
+
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px;">
     <img src="img/layout1.svg" alt="Description" style="border-radius: 8px;">
   </div>
   <div style="flex: 2; min-width: 300px;">
-    <h3 style="margin-top: 0;">Solarparks in Deutschland</h3>
 
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
 
