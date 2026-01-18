@@ -32,9 +32,9 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
    </p>
    <p>
-<a href="downloads/file1.pdf">Präsentation</a> | 
-<a href="downloads/file2.pdf">Layout 1.</a> | 
-<a href="downloads/file2.pdf">Layout 2.</a>
+<a href="downloads/Solar_Slides_NK.pdf">Präsentation</a> | 
+<a href="downloads/Solar_Layout_1_NK.pdf">Layout 1.</a> | 
+<a href="downloads/Solar_Layout_2_NK.pdf">Layout 2.</a>
   </p>
 <small>
 <p>
@@ -79,7 +79,7 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
  - [MapInfo Pro](https://www.precisely.com/product/precisely-mapinfo/mapinfo-pro)
  - Python, Geopandas
  - PostreSQL / PostGIS
- - Visual Studio Cide
+ - Visual Studio Code
  - Git
  - Linux (WSL)
 
@@ -102,7 +102,7 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
  - **Grund- u. Aufbaukurs QGIS**
    
    [cimdata Bildungsakademie](https://cimdata.de/weiterbildung/gis-qgis-aufbaukurs), 2026
- - **Geispatiale Datenanalyse mit Python**
+ - **Geospatiale Datenanalyse mit Python**
  
    [DataCamp](https://www.datacamp.com/portfolio/nkmzl), 2025
 
@@ -117,6 +117,6 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 
 ## Kontakte
 
- - Profil auf [LinkedIn](www.linkedin.com/in/geotrixi)
+ - Profil auf [LinkedIn](https://www.linkedin.com/in/geotrixi)
  - [Schreiben Sie mir](mailto:n@kmzl.de)
 
