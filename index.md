@@ -19,7 +19,7 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 </div>
 <div style="clear: both;"></div>
 
-## Portfolio
+## Projekte
 
 ### Solarparks in Deutschland
 
@@ -38,17 +38,17 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
   </p>
 <small>
 
-**Tools**: QGIS, Geopandas, Marp.
+<b>Tools</b>: QGIS, Geopandas, Marp.
 
-**Datenquellen**: 
+<b>Datenquellen</b>: 
 
-[INSPIRE](https://gdz.bkg.bund.de/index.php/default/inspire.html), 
-[Marktstammdatenregister](https://www.marktstammdatenregister.de/MaStR/), 
-[DWD](https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html), 
-[Zenodo](https://zenodo.org/records/14627853), 
-[Natural Earth](https://naturalearthdata.com), 
-[Open Data Länder](basismap.de), 
-[OpenStreetMap](https://www.openstreetmap.org/copyright) 
+<a href="https://gdz.bkg.bund.de/index.php/default/inspire.html">INSPIRE</a>, 
+<a href="https://www.marktstammdatenregister.de/MaStR/">Marktstammdatenregister</a>, 
+<a href="https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html">DWD</a>, 
+<a href="https://zenodo.org/records/14627853">Zenodo</a>, 
+<a href="https://naturalearthdata.com">Natural Earth</a>, 
+<a href="http://basismap.de">Open Data Länder</a>, 
+<a href="https://www.openstreetmap.org">OpenStreetMap</a> 
 (volle Liste in den Dateien).
 </small>
 
@@ -71,27 +71,15 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 
 ## Werkzeuge
 
-<div style="display: flex;">
-<div>
-
  - [QGIS](https://qgis.org)
  - [ArcGIS](https://www.arcgis.com)
  - [Streamlit](https://streamlit.io/)
  - [MapInfo Pro](https://www.precisely.com/product/precisely-mapinfo/mapinfo-pro)
  - Python, Geopandas
-
- </div>
- <div>
-
  - PostreSQL / PostGIS
  - Visual Studio Cide
  - Git
  - Linux (WSL)
-
-</div>
-</div>
-
-<div style="clear: both;"></div>
 
 ## Mitgliedschaft
 
