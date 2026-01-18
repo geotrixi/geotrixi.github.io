@@ -20,12 +20,12 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 ## Portfolio
 
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
-  <div style="flex: 1;">
+  <div style="flex: 1; min-width: 300px;">
     <img src="img/layout1.svg" alt="Description" style="border-radius: 8px;">
   </div>
   <div style="flex: 2; min-width: 300px;">
     <h3 style="margin-top: 0;">Solarparks in Deutschland</h3>
-    <p>
+
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
 
 [Präsentation](downloads/file1.pdf) | [Layout 1.](downloads/file2.pdf) | [Layout 2.](downloads/file3.pdf)
@@ -34,10 +34,17 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 
 **Tools**: QGIS, Geopandas, Marp.
 
-**Datenquellen**: [INSPIRE](https://gdz.bkg.bund.de/index.php/default/inspire.html), [Marktstammdatenregister](https://www.marktstammdatenregister.de/MaStR/), [DWD](https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html), [Zenodo](https://zenodo.org/records/14627853), [Natural Earth](https://naturalearthdata.com), [Open Data Länder](basismap.de), [OpenStreetMap](https://www.openstreetmap.org/copyright) (volle Liste in den Dateien).
+**Datenquellen**: 
+[INSPIRE](https://gdz.bkg.bund.de/index.php/default/inspire.html), 
+[Marktstammdatenregister](https://www.marktstammdatenregister.de/MaStR/), 
+[DWD](https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html), 
+[Zenodo](https://zenodo.org/records/14627853), 
+[Natural Earth](https://naturalearthdata.com), 
+[Open Data Länder](basismap.de), 
+[OpenStreetMap](https://www.openstreetmap.org/copyright) 
+(volle Liste in den Dateien).
 </small>
- 
-  </p>
+
   </div>
 </div>
 
