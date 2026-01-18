@@ -4,14 +4,17 @@
          style="width: 100%; border-radius: 8px;"/>
   </div>
   <div style="flex: 2; margin-left: 1em;">
-
+   <p>
 Ich bin Ingenieurin mit Abschluss in Vermessungswesen und vier Jahren Berufserfahrung im Bereich Geodaten und Katasterwesen in Russland, anerkannt von der Bayerischen Ingenieurekammer-Bau. 
-
+  </p>
+  <p>
 Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänzt durch aktuelle Weiterbildungen in Python, SQL und Power BI.
-
-**Lebenslauf:** 
-<a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als Webseite öffnen…" target="_blank">Web</a> | 
-<a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als PDF herunterladen…">PDF</a>
+  </p>
+  <p>
+  <b>Lebenslauf</b>: 
+  <a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als Webseite öffnen…" target="_blank">Web</a> | 
+  <a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als PDF herunterladen…">PDF</a>
+  </p>
   </div>
 </div>
 <div style="clear: both;"></div>
@@ -105,9 +108,16 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 
 ## Bildung
 
- - [2026] Grund- u. Aufbaukurs QGIS, [*cimdata Bildungsakademie*](https://cimdata.de/weiterbildung/gis-qgis-aufbaukurs)
- - [2025] Geispatiale Datenanalyse mit Python, [*DataCamp*](https://www.datacamp.com/portfolio/nkmzl)
- - [2010] Abschluß als Dipl. Vermessungsingenieur, *Nationale Polytechnische Forschungsuniversität Perm*
+ - **Grund- u. Aufbaukurs QGIS**
+   
+   [cimdata Bildungsakademie](https://cimdata.de/weiterbildung/gis-qgis-aufbaukurs), 2026
+ - **Geispatiale Datenanalyse mit Python**
+ 
+   [DataCamp](https://www.datacamp.com/portfolio/nkmzl), 2025
+
+ - **Abschluß als Dipl. Vermessungsingenieur**
+ 
+   Nationale Polytechnische Forschungsuniversität Perm, 2010
 
 ## Persönliches
 
