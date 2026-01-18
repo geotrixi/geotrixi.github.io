@@ -28,7 +28,7 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
     <p>
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
 
-[Präsentation]() | [Layout 1.]() | [Layout 2.]()
+[Präsentation](downloads/file1.pdf) | [Layout 1.](downloads/file2.pdf) | [Layout 2.](downloads/file3.pdf)
 
 <small>
 
