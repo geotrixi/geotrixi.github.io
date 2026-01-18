@@ -19,7 +19,7 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 </div>
 <div style="clear: both;"></div>
 
-## Projekte
+<h2 id="projects">Projekte</h2>
 
 ### Solarparks in Deutschland
 
