@@ -37,9 +37,10 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 <a href="downloads/file2.pdf">Layout 2.</a>
   </p>
 <small>
-
+<p>
 <b>Tools</b>: QGIS, Geopandas, Marp.
-
+</p>
+<p>
 <b>Datenquellen</b>: 
 
 <a href="https://gdz.bkg.bund.de/index.php/default/inspire.html">INSPIRE</a>, 
@@ -50,6 +51,7 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 <a href="http://basismap.de">Open Data Länder</a>, 
 <a href="https://www.openstreetmap.org">OpenStreetMap</a> 
 (volle Liste in den Dateien).
+</p>
 </small>
 
   </div>
