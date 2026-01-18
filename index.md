@@ -52,8 +52,8 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
  - Vektordatenanalyse.
  - Rasterdatenanalyse.
  - Netzwerkanalyse.
- - Automatosierung der Workflows mit **Python** (PyQGIS, Geopandas). 
- - Design und Verwaltung von **PostGIS/SQL**-Datenbanken zur effizienten Speicherung und Abfrage von Geodatensätzen.
+ - Automatosierung der Workflows mit Python (PyQGIS, Geopandas). 
+ - Design und Verwaltung von PostGIS/SQL-Datenbanken zur effizienten Speicherung und Abfrage von Geodatensätzen.
 
 ## Werkzeuge
 
