@@ -9,7 +9,9 @@ Ich bin Ingenieurin mit Abschluss in Vermessungswesen und vier Jahren Berufserfa
 
 Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänzt durch aktuelle Weiterbildungen in Python, SQL und Power BI.
 
-**Lebenslauf:** [Web](http://rxresu.me/kammerzell/geodatenanalyst) | [PDF](http://rxresu.me/kammerzell/geodatenanalyst)
+**Lebenslauf:** 
+<a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als Webseite öffnen…" target="_blank">Web</a> | 
+<a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als PDF herunterladen…">PDF</a>
   </div>
 </div>
 <div style="clear: both;"></div>
@@ -26,13 +28,16 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
 
-[Präsentation](downloads/file1.pdf) | [Layout 1.](downloads/file2.pdf) | [Layout 2.](downloads/file3.pdf)
+<a href="downloads/file1.pdf">Präsentation</a> | 
+<a href="downloads/file2.pdf">Layout 1.</a> | 
+<a href="downloads/file2.pdf">Layout 2.</a>
 
 <small>
 
 **Tools**: QGIS, Geopandas, Marp.
 
 **Datenquellen**: 
+
 [INSPIRE](https://gdz.bkg.bund.de/index.php/default/inspire.html), 
 [Marktstammdatenregister](https://www.marktstammdatenregister.de/MaStR/), 
 [DWD](https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html), 
