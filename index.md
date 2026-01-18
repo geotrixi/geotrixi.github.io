@@ -28,13 +28,14 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
     <img src="img/layout1.svg" alt="Description" style="border-radius: 8px;">
   </div>
   <div style="flex: 2; min-width: 300px;">
-
+    <p>
 Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
-
+   </p>
+   <p>
 <a href="downloads/file1.pdf">Präsentation</a> | 
 <a href="downloads/file2.pdf">Layout 1.</a> | 
 <a href="downloads/file2.pdf">Layout 2.</a>
-
+  </p>
 <small>
 
 **Tools**: QGIS, Geopandas, Marp.
