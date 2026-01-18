@@ -8,14 +8,11 @@
 Ich bin Ingenieurin mit Abschluss in Vermessungswesen und vier Jahren Berufserfahrung im Bereich Geodaten und Katasterwesen in Russland, anerkannt von der Bayerischen Ingenieurekammer-Bau. 
 
 Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänzt durch aktuelle Weiterbildungen in Python, SQL und Power BI.
+
+**Lebenslauf:** [Web](http://rxresu.me/kammerzell/geodatenanalyst) | [PDF](http://rxresu.me/kammerzell/geodatenanalyst)
   </div>
 </div>
 <div style="clear: both;"></div>
-
-## Lebenslauf
-
- - [Web](http://rxresu.me/kammerzell/geodatenanalyst)
- - [PDF](http://rxresu.me/kammerzell/geodatenanalyst)
 
 ## Portfolio
 
