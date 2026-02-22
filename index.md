@@ -53,8 +53,8 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 (volle Liste in den Dateien).
 </p>
 </small>
+  </div>
 </div>
-
 
 ### Unfallkarte
 
@@ -86,7 +86,7 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 (volle Liste in den Dateien).
 </p>
 </small>
-</div>
+  </div>
 </div>
 
 <div style="clear: both;"></div>
