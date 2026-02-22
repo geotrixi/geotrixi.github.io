@@ -53,8 +53,40 @@ Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsent
 (volle Liste in den Dateien).
 </p>
 </small>
+</div>
 
+
+### Unfallkarte
+
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 300px;">
+    <img src="img/project-webmap.svg" alt="Projects Preview" style="border-radius: 8px;">
   </div>
+  <div style="flex: 2; min-width: 300px;">
+    <p>
+Dieses Projekt demonstriert die Anwendung moderner Geodatenanalyse. Die Präsentation visualisiert die zentralen Ergebnisse und erläutert kurz die methodische Vorgehensweise. Ergänzend zeigen zwei PDF-Layouts praxisnahe Anwendungsbeispiele für die Arbeit mit Raster- und Vektordaten.
+   </p>
+   <p>
+<a href="/project-webmap">Web-Map</a>
+  </p>
+<small>
+<p>
+<b>Tools</b>: QGIS, Geopandas, Marp.
+</p>
+<p>
+<b>Datenquellen</b>: 
+
+<a href="https://gdz.bkg.bund.de/index.php/default/inspire.html">INSPIRE</a>, 
+<a href="https://www.marktstammdatenregister.de/MaStR/">Marktstammdatenregister</a>, 
+<a href="https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html">DWD</a>, 
+<a href="https://zenodo.org/records/14627853">Zenodo</a>, 
+<a href="https://naturalearthdata.com">Natural Earth</a>, 
+<a href="http://basismap.de">Open Data Länder</a>, 
+<a href="https://www.openstreetmap.org">OpenStreetMap</a> 
+(volle Liste in den Dateien).
+</p>
+</small>
+</div>
 </div>
 
 <div style="clear: both;"></div>
