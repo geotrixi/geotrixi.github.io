@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- Deklaration des DOCTYPES als HTML5, vor der Deklaration sollte nichts stehen!!! -->
+
+<!-- Start des HTML mit dem öffnenden <html>-Tag. Hier sollte die primäre Sprache des Inhaltes mit dem lang-Attribut definiert werden. -->
+<html lang="de">
+	
+	<!-- <head>-Bereich für Metainformationen (Schlagwörter, Autor, Titel etc.), externes CSS oder Scripteinbindungen --> 
+	<head>
+		
+		<!-- Kodierung der Webseite, wie mit Umlauten etc. umgegangen werden, UTF-( Standard für Webseiten -->
+		<meta charset="UTF-8">
+		
+		<!-- Der Viewport Meta Tag sollte genutzt werden, wenn ein flexibles Design (responsive) angestrebt wird. Mit den beiden "content"-Einstellungen "width=device-width, initial-scale=1.0" passt sich der Inhalt der Webseite optimal an jede Endgerätegröße an  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- ...sorgt dafür, dass alle Links auf der Webseite sich automatisch in in einem neuen Tab/Fenster öffnen. Standardmäßig werden Links im selben Fenster geöffnet   -->
+		<base target="_blank">	
+		
+		<!-- Der Title-Tag wird im Tab eines Browsers angezeigt und ist ein unverzichtbarer Teil einer jeden HTML Seite. Die präzise Beschriftung von Title-Tags ist das A und O der Suchmaschinenoptimierung. Es gilt jeder URL einen einzigartigen individuellen Title-Tag zu geben. Für Google ist dies ein maßgeblicher Rankingfaktor-->
+		<title>Bayern Unfälle.</title>
+		
+		<!-- Favicon: Icon,das neben dem Titel-Tag angezeigt wird. In der Praxis oft das Logo eines Unternehmens -->
+		<link rel="shortcut icon" type="image/x-icon" href="https://www.ralf-wessels.de/webmap/cimdata/NatalieK/favicon.svg" >
+		
+		
+		<!-- im Headerbereich definierte CSS-Styles -->	
+		<style>
+/* html und body sind die HTML-Elemente auf oberster Ebene. Alle darin enthaltene HTML-Elemente bekommen die hier definierten Style-Eigenschaften, wenn nicht extra definiert. U.a. wird hier die Breite und Höhe der gesamten Webseite mit 100% von einem beliebigen Endgerät definiert und die Schriftart "calibri,sans-serif" festgelegt - weitere sichere Schriftarten siehe  https://www.w3schools.com/cssref/css_websafe_fonts.asp */
+
+		html, body {
+			width: 100%;						
+            height: 100%;
+			font-family: calibri,sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+
+/* Das HTML-div-Element ist eine Box mit individueller Breite und Höhe, welche über eine individuelle id per CSS verknüpft ist. Der Inhalt der DIV-Box wird mit "display: flex", "flex-direction" und "align-items" zentriert dargestellt */
+		#center_div {
+			display: flex;					
+			flex-direction: column;			
+			align-items: center;			
+		}
+
+
+/* CSS-Eigenschaften für das iframe-Element - ein schwarzer Rahmen mit der Breite von 1px, sowie die Breite in % (von dem übergeordneten DIV-Element) und die Höhe in vh (relativ zur Höhe des Browserfensters so dass das iframe immer ausreichend hoch ist) */
+		iframe {
+			border: 1px solid black;
+			border-radius: 8px;
+			width:60%; 
+			height:80vh;
+		}
+
+
+/* CSS-Eigenschaften für das p-Element, um Texte zu definieren - mit margin:0.2em wird der Abstand zu anderen Elementen festgelegt */		
+		p {
+			margin: 0.2em;
+		} 
+				
+		table.dataframe {
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 700px;
+			margin: 20px auto;
+			font-family: "Segoe UI", Roboto, Arial, sans-serif;
+			font-size: 15px;
+			background-color: #ffffff;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		}
+
+		table.dataframe thead {
+			background: linear-gradient(135deg, #2c3e50, #34495e);
+			color: #ffffff;
+		}
+
+		table.dataframe th {
+			padding: 5px 5px;
+			font-weight: 600;
+			letter-spacing: 0.3px;
+			text-align: center;
+		}
+
+		table.dataframe td {
+			padding: 12px 16px;
+			border-bottom: 1px solid #eeeeee;
+			text-align: right;
+		}
+
+		table.dataframe tbody tr:nth-child(even) {
+			background-color: #f8f9fa;
+		}
+
+		table.dataframe tbody tr:hover {
+			background-color: #eaf3ff;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		table.dataframe tbody tr:last-child td {
+			border-bottom: none;
+		}
+		
+		.container {
+		  display: flex;
+		  gap: 50px;
+		  width: 60%;
+		}
+		
+		.container h3 {
+			text-align: center;
+			width: 100%;
+		}
+
+		.left {
+		  width: 50%;
+		}
+
+		.right {
+		  width: 50%;
+		}
+		.left p {
+		margin-top: 60px;
+		text-align: justify;
+		}
+
+		@media (max-width: 800px) {
+		  .container {
+			flex-direction: column;
+		  }
+		  .left, .right {
+			width: 100%;
+		  }
+		}
+		</style>
+		
+	</head>
+	
+	<!-- Jetzt kommt der <body>-Bereich für den Inhalt / das eigentliche HTML -->
+	<body>
+		<div id="center_div">
+			<h2>Wo passieren die meisten Unfälle mit Personenschaden in Bayern</h2>
+			
+			<iframe src="https://qgiscloud.com/cimdata15/Projekt_web/" allow="fullscreen">" title="QGIS Cloud Webmap Wo passieren die meisten Unfälle mit Personenschaden" loading="lazy"></iframe>
+			
+			<p>Autor: Natalie Kammerzell / Datum: 12.02.2026</p>
+			
+			<div class="container">
+				<div class="left">
+					<h3>Unfallzahlen in Bayern im Zeitvergleich</h3>
+					<table border="1" class="dataframe">
+					  <thead>
+						<tr style="text-align: right;">
+						  <th>Jahr</th>
+						  <th>Unfällezahl gesamt</th>
+						  <th>Unfälle mit Personenschaden</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>2015</td>
+						  <td>65 999</td>
+						  <td>53 823</td>
+						</tr>
+						<tr>
+						  <td>2020</td>
+						  <td>54 760</td>
+						  <td>46 013</td>
+						</tr>
+						<tr>
+						  <td>2024</td>
+						  <td>58 872</td>
+						  <td>49 374</td>
+						</tr>
+					  </tbody>
+					</table>
+					
+					<p>Die Karte veranschaulicht die räumliche Verteilung der Verkehrsunfälle mit Personenschaden in Bayern in den Jahren 2015, 2020 und 2024. Auffällig ist eine deutliche Konzentration der Unfälle in den größeren Städten sowie entlang der Autobahnen. Etwa 20 % aller Unfälle ereignen sich in den fünf größten Städten Bayerns, was auf eine hohe Verkehrsbelastung und eine größere Verkehrsdichte in diesen urbanen Räumen zurückzuführen ist.</p>
+				</div>
+
+				<div class="right">
+					<img src="unfaelle_gesamt.svg" width="100%" height="480" />
+				</div>
+			</div>
+			
+			
+			<!--<p>Quellen: <a href="https://www.bkg.bund.de/DE/Home/home.html">© BKG</a> 2025, <a href="https://www.govdata.de/dl-de/by-2-0"> dl-de/by-2-0</a>, BKG-Datenquellen: <a href="https://sgx.geodatenzentrum.de/web_public/gdz/datenquellen/datenquellen_vg_nuts.pdf">Link</a> / <a href="https://www.statistikportal.de/de/open-data"> Statistische Ämter des Bundes und der Länder</a></p>-->
+		</div>
+	</body>
+</html>
