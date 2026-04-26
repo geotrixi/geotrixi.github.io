@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoAnalytik Ammersee — Geodaten & KI für Südbayern</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #1a3a2a;
+      --moss:     #2d5a3d;
+      --sage:     #4a7c59;
+      --fern:     #6fa07a;
+      --mist:     #c8dcc8;
+      --cream:    #f5f0e8;
+      --sand:     #e8dfc8;
+      --sun:      #d4a843;
+      --sun-light:#f0c96a;
+      --dark:     #111a14;
+      --text:     #2a3a2e;
+      --text-muted: #5a7060;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(74,124,89,0.15);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--sun); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--forest); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(111,160,122,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(212,168,67,0.08) 0%, transparent 60%);
+    }
+
+    /* Topographic lines */
+    .topo-svg {
+      position: absolute; right: 0; top: 0;
+      width: 55%; height: 100%;
+      opacity: 0.07;
+    }
+
+    .hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 6rem 6rem;
+      position: relative; z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(74,124,89,0.1);
+      border: 1px solid rgba(74,124,89,0.25);
+      color: var(--sage);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      margin-bottom: 2rem;
+      width: fit-content;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem; line-height: 1.7;
+      color: var(--text-muted); max-width: 480px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--forest);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600; font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--moss); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--forest);
+      border: 1.5px solid var(--forest);
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500; font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(26,58,42,0.06); }
+
+    /* Hero Visual Panel */
+    .hero-visual {
+      display: flex; align-items: center; justify-content: center;
+      padding: 4rem 4rem 4rem 2rem;
+      position: relative; z-index: 2;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .map-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(26,58,42,0.15), 0 4px 16px rgba(26,58,42,0.08);
+      overflow: hidden;
+      width: 100%; max-width: 460px;
+    }
+
+    .map-card-header {
+      background: var(--forest);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .map-card-header span {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+
+    .map-placeholder {
+      height: 240px;
+      background:
+        linear-gradient(180deg, #e8f0e8 0%, #d4e4d4 100%);
+      position: relative; overflow: hidden;
+    }
+    /* Fake topographic map */
+    .map-placeholder svg {
+      width: 100%; height: 100%;
+    }
+
+    .map-stats {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      padding: 1.25rem 1.5rem; gap: 1rem;
+      border-top: 1px solid var(--mist);
+    }
+    .stat { text-align: center; }
+    .stat-val {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--forest);
+    }
+    .stat-val span { color: var(--sun); }
+    .stat-label {
+      font-size: 0.7rem; color: var(--text-muted);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 6rem; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; font-weight: 600;
+      color: var(--sage); margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--forest); letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 1.5rem;
+    }
+
+    /* ── SERVICES ── */
+    #leistungen {
+      background: var(--forest);
+      color: white;
+    }
+    #leistungen .section-label { color: var(--fern); }
+    #leistungen h2 { color: white; }
+    #leistungen p { color: rgba(255,255,255,0.65); max-width: 560px; margin-bottom: 3.5rem; font-weight: 300; line-height: 1.7; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: rgba(255,255,255,0.08); }
+
+    .service-icon {
+      font-size: 2rem; margin-bottom: 1.25rem;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.05rem; font-weight: 600;
+      color: white; margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.875rem; color: rgba(255,255,255,0.5);
+      line-height: 1.6; margin-bottom: 0;
+    }
+    .service-tag {
+      display: inline-block; margin-top: 1.25rem;
+      font-size: 0.68rem; letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 600;
+      color: var(--sun);
+      border: 1px solid rgba(212,168,67,0.35);
+      padding: 0.25rem 0.7rem; border-radius: 4px;
+    }
+
+    /* ── PROJEKTE ── */
+    #projekte { background: var(--sand); }
+    #projekte > p { color: var(--text-muted); max-width: 540px; margin-bottom: 3.5rem; line-height: 1.7; font-weight: 300; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(26,58,42,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(26,58,42,0.12);
+    }
+    .project-card:first-child {
+      grid-column: 1 / -1;
+    }
+    .project-visual {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .project-card:first-child .project-visual { height: 260px; }
+    .pv-solar {
+      background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3d 50%, #4a7c59 100%);
+    }
+    .pv-shadow {
+      background: linear-gradient(135deg, #1a2a3a 0%, #2d3d5a 50%, #4a5a7c 100%);
+    }
+    .pv-reben {
+      background: linear-gradient(135deg, #2a1a10 0%, #5a3d2d 50%, #7c6a4a 100%);
+    }
+
+    .project-visual-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-align: center;
+    }
+    .project-visual-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+
+    .project-body { padding: 1.75rem; }
+    .project-status {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .status-active { color: var(--sage); }
+    .status-planned { color: var(--sun); }
+    .project-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; color: var(--forest);
+      margin-bottom: 0.6rem;
+    }
+    .project-body p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .tech-tag {
+      font-size: 0.68rem; letter-spacing: 0.05em;
+      background: var(--mist); color: var(--moss);
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* ── TEAM ── */
+    #team { background: var(--cream); }
+    #team > p { color: var(--text-muted); max-width: 540px; margin-bottom: 3.5rem; line-height: 1.7; font-weight: 300; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 16px rgba(26,58,42,0.06);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+    .avatar {
+      width: 72px; height: 72px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .av-geo { background: linear-gradient(135deg, var(--sage), var(--fern)); }
+    .av-eng { background: linear-gradient(135deg, var(--forest), var(--moss)); }
+
+    .team-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; color: var(--forest); margin-bottom: 0.25rem;
+    }
+    .team-role {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem;
+    }
+    .team-info p {
+      font-size: 0.875rem; color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .team-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+    .skill-tag {
+      font-size: 0.7rem; padding: 0.25rem 0.65rem;
+      background: var(--sand); color: var(--text-muted);
+      border-radius: 4px; font-weight: 500;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt {
+      background: var(--forest);
+      color: white;
+      text-align: center;
+      padding: 7rem 4rem;
+    }
+    #kontakt .section-label { color: var(--fern); }
+    #kontakt h2 { color: white; max-width: 600px; margin: 0 auto 1.25rem; }
+    #kontakt p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 300; }
+    .contact-email {
+      display: inline-block;
+      background: var(--sun);
+      color: var(--dark);
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-email:hover {
+      background: var(--sun-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── IMPRESSUM ── */
+    #impressum {
+      background: var(--dark);
+      color: rgba(255,255,255,0.45);
+      padding: 3rem 6rem;
+      font-size: 0.82rem; line-height: 1.8;
+    }
+    #impressum h4 {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 0.75rem; letter-spacing: 0.05em;
+    }
+    .impressum-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 3rem; margin-bottom: 2rem;
+    }
+    .footer-bar {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      color: rgba(255,255,255,0.5); font-size: 0.95rem;
+    }
+    .footer-logo span { color: var(--sun); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero-text { padding: 5rem 2rem 4rem; }
+      section { padding: 5rem 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:first-child { grid-column: auto; }
+      .team-grid { grid-template-columns: 1fr; }
+      .impressum-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      #impressum { padding: 3rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Geo<span>Analytik</span> Ammersee</div>
+  <ul class="nav-links">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#projekte">Projekte</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="start">
+  <div class="hero-bg"></div>
+
+  <!-- Topographic SVG background -->
+  <svg class="topo-svg" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path d="M50,300 Q150,200 250,280 T450,260" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M30,330 Q130,220 240,310 T460,290" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M10,360 Q110,250 230,340 T470,320" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M0,390 Q100,280 220,370 T480,350" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M70,270 Q170,170 270,250 T450,230" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M80,240 Q200,140 300,220 T480,200" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M100,210 Q220,110 310,190 T490,170" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M0,420 Q90,310 210,400 T490,380" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M0,450 Q80,340 200,430 T500,410" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M0,480 Q70,370 180,460 T500,440" fill="none" stroke="#2d5a3d" stroke-width="1.5"/>
+    <path d="M150,180 Q250,90 340,160 T490,140" fill="none" stroke="#2d5a3d" stroke-width="1"/>
+    <path d="M180,150 Q280,70 360,130 T490,110" fill="none" stroke="#2d5a3d" stroke-width="1"/>
+    <circle cx="280" cy="230" r="40" fill="none" stroke="#2d5a3d" stroke-width="1"/>
+    <circle cx="280" cy="230" r="70" fill="none" stroke="#2d5a3d" stroke-width="0.8"/>
+    <circle cx="280" cy="230" r="100" fill="none" stroke="#2d5a3d" stroke-width="0.6"/>
+  </svg>
+
+  <div class="hero-text">
+    <div class="hero-badge">Geodaten & KI · Südbayern</div>
+    <h1>Intelligente<br>Analysen für<br><em>Land & Raum</em></h1>
+    <p class="hero-sub">
+      Wir verbinden Geodatenanalyse mit modernen KI-Methoden —
+      für Kommunen, Landwirtschaft und Energieprojekte in der Ammersee-Region und darüber hinaus.
+    </p>
+    <div class="hero-ctas">
+      <a href="#leistungen" class="btn-primary">Unsere Leistungen</a>
+      <a href="#kontakt" class="btn-outline">Kontakt aufnehmen</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="map-card">
+      <div class="map-card-header">
+        <div class="dot"></div>
+        <span>Solarpotenzialanalyse · Landkreis Weilheim-Schongau</span>
+      </div>
+      <div class="map-placeholder">
+        <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="460" height="240" fill="#d4e4d4"/>
+          <!-- Water (Ammersee) -->
+          <ellipse cx="340" cy="140" rx="60" ry="80" fill="#a8c4d4" opacity="0.8"/>
+          <!-- Fields -->
+          <rect x="30" y="40" width="90" height="60" rx="4" fill="#c8d8b8" opacity="0.9"/>
+          <rect x="130" y="30" width="80" height="55" rx="4" fill="#b8cc9c" opacity="0.9"/>
+          <rect x="220" y="50" width="70" height="50" rx="4" fill="#c4d4a8" opacity="0.9"/>
+          <!-- Solar potential overlays -->
+          <rect x="35" y="45" width="80" height="50" rx="3" fill="#d4a843" opacity="0.55"/>
+          <rect x="135" y="35" width="65" height="42" rx="3" fill="#d4a843" opacity="0.4"/>
+          <rect x="225" y="55" width="58" height="38" rx="3" fill="#d4a843" opacity="0.7"/>
+          <!-- Buildings -->
+          <rect x="60" y="130" width="12" height="10" fill="#8aaa7a"/>
+          <rect x="80" y="125" width="15" height="12" fill="#8aaa7a"/>
+          <rect x="100" y="133" width="10" height="9" fill="#8aaa7a"/>
+          <rect x="150" y="110" width="14" height="11" fill="#8aaa7a"/>
+          <rect x="170" y="118" width="12" height="10" fill="#8aaa7a"/>
+          <rect x="240" y="120" width="13" height="11" fill="#8aaa7a"/>
+          <!-- Roads -->
+          <path d="M0,160 Q120,140 220,155 T400,150" fill="none" stroke="white" stroke-width="2.5" opacity="0.8"/>
+          <path d="M180,240 L200,150 L210,50" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+          <!-- Legend -->
+          <rect x="15" y="200" width="10" height="8" fill="#d4a843" opacity="0.7" rx="1"/>
+          <text x="30" y="208" font-size="8" fill="#1a3a2a" font-family="sans-serif">Hoher Ertrag</text>
+          <rect x="90" y="200" width="10" height="8" fill="#d4a843" opacity="0.4" rx="1"/>
+          <text x="105" y="208" font-size="8" fill="#1a3a2a" font-family="sans-serif">Mittlerer Ertrag</text>
+          <rect x="185" y="200" width="10" height="8" fill="#a8c4d4" opacity="0.8" rx="1"/>
+          <text x="200" y="208" font-size="8" fill="#1a3a2a" font-family="sans-serif">Gewässer</text>
+          <!-- Compass -->
+          <circle cx="430" cy="30" r="14" fill="white" opacity="0.8"/>
+          <text x="430" y="26" text-anchor="middle" font-size="8" fill="#1a3a2a" font-family="sans-serif" font-weight="bold">N</text>
+          <line x1="430" y1="19" x2="430" y2="16" stroke="#1a3a2a" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="map-stats">
+        <div class="stat">
+          <div class="stat-val">847<span>ha</span></div>
+          <div class="stat-label">Analysefläche</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">94<span>%</span></div>
+          <div class="stat-label">Abdeckung</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">12<span>GWh</span></div>
+          <div class="stat-label">Potenzial/Jahr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="section-label">Was wir tun</div>
+  <h2>Unsere Leistungen</h2>
+  <p>Von der Datenaufbereitung bis zur fertigen Analyse — wir bieten maßgeschneiderte Geodatendienstleistungen für Kommunen, Landwirtschaft und Energieprojekte.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">☀️</span>
+      <h3>Solarpotenzialkataster</h3>
+      <p>Automatisierte Berechnung des Solarertragspotenzials für jedes Gebäude einer Gemeinde — als interaktive Karte und PDF-Bericht.</p>
+      <span class="service-tag">Pflichtleistung Kommunen</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏗️</span>
+      <h3>Bauleitplanung & Bebauungspläne</h3>
+      <p>Verschattungsanalysen, Grünflächenbilanzen und Klimaanalysen als gesetzlich vorgeschriebene Bestandteile der Bauleitplanung.</p>
+      <span class="service-tag">BauGB §1</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌾</span>
+      <h3>Agrar- & Rebflächenanalyse</h3>
+      <p>Bodenqualität, Hangneigung und Besonnungsanalysen für optimale Anbauplanung — basierend auf OpenData und Satellitendaten.</p>
+      <span class="service-tag">Precision Agriculture</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤖</span>
+      <h3>KI-gestützte Fernerkundung</h3>
+      <p>Automatische Erkennung von Flächenveränderungen, Schadensanalysen und Landnutzungsklassifikation aus Luftbild- und Satellitendaten.</p>
+      <span class="service-tag">Computer Vision</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌊</span>
+      <h3>Hochwasser & Risikoanalysen</h3>
+      <p>Hochwasserrisikokarten und Klimaanalysen nach EU-Wasserrahmenrichtlinie und HWRM-Richtlinie für Landkreise und Gemeinden.</p>
+      <span class="service-tag">HWRM-RL</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🌡️</span>
+      <h3>Hitzeaktionspläne & Klimaanalyse</h3>
+      <p>Urbane Hitzeinsel-Analysen und Kaltluftschneisen-Kartierung als Grundlage für kommunale Klimaanpassungsstrategien.</p>
+      <span class="service-tag">Neu · EU-Empfehlung 2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTE -->
+<section id="projekte">
+  <div class="section-label">Unsere Arbeit</div>
+  <h2>Aktuelle Projekte</h2>
+  <p>Wir arbeiten an konkreten Projekten mit realen Geodaten aus der Region — transparent, nachvollziehbar und öffentlich einsehbar auf GitHub.</p>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-visual pv-solar">
+        <div style="text-align:center">
+          <div class="project-visual-icon">☀️</div>
+          <div class="project-visual-label">Laufendes Projekt · 2025</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-status status-active">● Aktiv</div>
+        <h3>Solarpotenzialkataster Gemeinde Herrsching</h3>
+        <p>Vollautomatisierte Analyse aller Gebäude in Herrsching am Ammersee. Eingangsdaten: LoD2-Gebäudemodelle (LDBV Bayern), DGM1, DWD-Einstrahlungsdaten. Berechnung von Dachneigung, Ausrichtung und jährlichem Ertragspotenzial je Dachfläche.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">QGIS</span>
+          <span class="tech-tag">pvlib</span>
+          <span class="tech-tag">GeoPandas</span>
+          <span class="tech-tag">GRASS GIS r.sun</span>
+          <span class="tech-tag">PostGIS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-visual pv-shadow">
+        <div style="text-align:center">
+          <div class="project-visual-icon">🌤️</div>
+          <div class="project-visual-label">Geplant · 2025</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-status status-planned">◐ Geplant</div>
+        <h3>Besonnungsatlas Ammersee</h3>
+        <p>Schattenanalysen für öffentliche Flächen — Badeplätze, Biergärten, Sportanlagen. Stündliche Simulation der Sonneneinstrahlung über das gesamte Jahr.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">QGIS</span>
+          <span class="tech-tag">r.sun</span>
+          <span class="tech-tag">OSM</span>
+          <span class="tech-tag">Leaflet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-visual pv-reben">
+        <div style="text-align:center">
+          <div class="project-visual-icon">🍇</div>
+          <div class="project-visual-label">Geplant · 2025</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-status status-planned">◐ Geplant</div>
+        <h3>Rebflächenpotenzial Bayern</h3>
+        <p>Wo in Bayern könnten sich unter Klimawandel-Szenarien neue Rebflächen entwickeln? Analyse von Hangneigung, Exposition und Wärmesummen aus DWD-Daten.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Sentinel-2</span>
+          <span class="tech-tag">GeoPandas</span>
+          <span class="tech-tag">DWD</span>
+          <span class="tech-tag">BayernAtlas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">Wer wir sind</div>
+  <h2>Das Team</h2>
+  <p>Zwei Spezialisten mit komplementären Fähigkeiten — Geodatenanalyse trifft auf Dateningenieurwesen und KI-Entwicklung.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="avatar av-geo">🗺️</div>
+      <div class="team-info">
+        <!-- Vorname Ihrer Frau eintragen -->
+        <h3>[Vorname] [Nachname]</h3>
+        <div class="team-role">Geodatenanalystin</div>
+        <p>Spezialistin für räumliche Datenanalyse mit Schwerpunkt auf Fernerkundung, Solarpotenzialanalyse und Landnutzungsklassifikation. Weiterbildung zur Geodatenanalystin mit Fokus auf QGIS, Python und Satellitenbildauswertung.</p>
+        <div class="team-skills">
+          <span class="skill-tag">QGIS</span>
+          <span class="skill-tag">GeoPandas</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Fernerkundung</span>
+          <span class="skill-tag">Sentinel-2</span>
+          <span class="skill-tag">Kartographie</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar av-eng">⚙️</div>
+      <div class="team-info">
+        <!-- Deinen Namen eintragen -->
+        <h3>[Vorname] [Nachname]</h3>
+        <div class="team-role">Dateningenieur & KI-Entwickler</div>
+        <p>Softwareentwickler und Dateningenieur mit Fokus auf skalierbare Datenpipelines, KI-Applikationen und Backend-Infrastruktur. Entwicklung automatisierter Geodaten-Verarbeitungssysteme und KI-gestützter Analysewerkzeuge.</p>
+        <div class="team-skills">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PostGIS</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Cloud Infrastructure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="section-label">Zusammenarbeiten</div>
+  <h2>Gemeinsam Geodaten sinnvoll nutzen</h2>
+  <p>Sie sind Gemeinde, Landwirt, Energieversorger oder Planer und suchen kompetente Unterstützung bei Geodatenanalysen? Sprechen Sie uns an.</p>
+  <!-- E-Mail eintragen -->
+  <a href="mailto:info@geoanalytik-ammersee.de" class="contact-email">info@geoanalytik-ammersee.de</a>
+</section>
+
+<!-- IMPRESSUM -->
+<footer id="impressum">
+  <div class="impressum-grid">
+    <div>
+      <h4>Impressum</h4>
+      <!-- Alle Felder mit echten Daten befüllen -->
+      [Vorname Nachname]<br>
+      [Straße Hausnummer]<br>
+      82211 Herrsching am Ammersee<br>
+      Deutschland
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      E-Mail: info@geoanalytik-ammersee.de<br><br>
+      <h4 style="margin-top:1rem">Steuerliche Angaben</h4>
+      Freiberufliche Tätigkeit<br>
+      Steuernummer: [Steuernummer eintragen]
+    </div>
+    <div>
+      <h4>Haftungshinweis</h4>
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="footer-logo">Geo<span>Analytik</span> Ammersee</div>
+    <div>© 2025 · Herrsching am Ammersee</div>
+  </div>
+</footer>
+
+</body>
+</html>
