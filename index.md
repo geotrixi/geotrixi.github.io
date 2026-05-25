@@ -115,6 +115,7 @@ Darstellung von Gemeinden in Bayern mit den höchsten Unfallzahlen und deren Ent
 
 ## Werkzeuge
 
+ - Microsoft Power BI / Microsoft Fabric
  - [QGIS](https://qgis.org)
  - [ArcGIS](https://www.arcgis.com)
  - [Streamlit](https://streamlit.io/)
