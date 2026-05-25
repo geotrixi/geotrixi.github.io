@@ -37,7 +37,7 @@ Das Dashboard visualisiert Kennzahlen wie Gesamtunfälle, Personen- und Sachsch�
   </p>
 <small>
 <p>
-<b>Tools</b>: Power BI Desktop · Power BI Service / Microsoft Fabric · JSON Theme · DAX · ESRI Map Visual
+<b>Tools</b>: Power BI Desktop · Power BI Service / Microsoft Fabric · DAX · ESRI Map Visual
 </p>
 </small>
   </div>
@@ -158,7 +158,8 @@ Darstellung von Gemeinden in Bayern mit den höchsten Unfallzahlen und deren Ent
  - Geb. in Russland
  - Seit 2021 in Herrsching am Ammersee, Deutschland
 
-## Kontakte
+## Kontakte / Impressum
 
+ - Natalie Kammerzell
  - Profil auf [LinkedIn](https://www.linkedin.com/in/geotrixi)
- - [Schreiben Sie mir](mailto:n@kmzl.de)
+ - [Kontakt](mailto:n+geo@kmzl.de)
