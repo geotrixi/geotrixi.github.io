@@ -104,6 +104,7 @@ Darstellung von Gemeinden in Bayern mit den höchsten Unfallzahlen und deren Ent
 
 ## Leistungen
 
+ - Datenmodellierung und Erstellung von interaktiven Dashboards
  - Erstellung der digitalen und druckbaren Karten.
  - Visualisieren der Geodaten, Erstellung der Infografik.
  - Entwicklung der geodatenorientierten Web-Applikationen.
