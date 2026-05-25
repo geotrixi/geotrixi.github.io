@@ -21,6 +21,28 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
 
 <h2 id="projects">Projekte</h2>
 
+### Dashboard Straßenverkehrsunfälle Deutschland
+
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+  <div style="flex: 1; min-width: 300px;">
+    <img src="img/unfaelle_alle_2024.png" alt="Dashboard Preview" style="border-radius: 8px;">
+  </div>
+  <div style="flex: 2; min-width: 300px;">
+    <p>
+Das Dashboard visualisiert Kennzahlen wie Gesamtunfälle, Personen- und Sachschäden sowie Getötete und Verletzte in einem übersichtlichen KPI-Bereich. Design orientiert sich an der ADAC-Markenidentität.
+   </p>
+   <p>
+<a href="downloads/accidents_all_2024.pdf">Deutschland 2024</a> | 
+<a href="downloads/accidents_bayern_2024.pdf">Bayern 2024</a>
+  </p>
+<small>
+<p>
+<b>Tools</b>: Power BI Desktop · Power BI Service / Microsoft Fabric · JSON Theme · DAX · ESRI Map Visual
+</p>
+</small>
+  </div>
+</div>
+
 ### Solarparks in Deutschland
 
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
@@ -140,4 +162,3 @@ Darstellung von Gemeinden in Bayern mit den höchsten Unfallzahlen und deren Ent
 
  - Profil auf [LinkedIn](https://www.linkedin.com/in/geotrixi)
  - [Schreiben Sie mir](mailto:n@kmzl.de)
-
