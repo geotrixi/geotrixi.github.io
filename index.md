@@ -12,8 +12,7 @@ Meine fachlichen Schwerpunkte liegen in der Arbeit mit Geodaten und GIS, ergänz
   </p>
   <p>
   <b>Lebenslauf</b>: 
-  <a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als Webseite öffnen…" target="_blank">Web</a> | 
-  <a href="http://rxresu.me/kammerzell/geodatenanalyst" title="Lebenslauf als PDF herunterladen…">PDF</a>
+  <a href="http://rxresu.me/kammerzell/datenanalyst" title="Lebenslauf als Webseite öffnen…" target="_blank">Web</a>
   </p>
   </div>
 </div>
